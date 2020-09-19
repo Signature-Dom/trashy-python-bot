@@ -57,7 +57,7 @@ async def on_member_remove(member):
 
 async def tez():
     while True:
-        print('Keeping Bot Online')
+        print('This is a simple message sent every 15 minutes to keep the bot online.')
         await asyncio.sleep(900)
 
 @client.event #startup
@@ -106,14 +106,6 @@ async def minecraft(ctx, *, message):
     await ctx.send(file=discord.File('achievement2.png'))
     if commands.bot_has_permissions(manage_messages=True):
         await bot.delete_message(ctx.message)
-
-#@client.command()
-#async def gstart(ctx, w, t, *, prize):
-#    time = list(x)
-#    giveaway = discord.Embed(title=f'**{prize}**', description=f"React with :tada: to enter!\nTime Left:\nHosted by: {ctx.author.mention}", color = discord.Colour.dark_gold()) # or any other color
-
-
-
 
 @client.command()
 async def apply(ctx):
