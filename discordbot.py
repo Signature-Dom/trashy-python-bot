@@ -105,7 +105,7 @@ async def minecraft(ctx, *, message):
     img.save('achievement2.png')
     await ctx.send(file=discord.File('achievement2.png'))
     if commands.bot_has_permissions(manage_messages=True):
-        await bot.delete_message(ctx.message)
+    await client.delete_message(ctx.message)
 
 @client.command()
 async def apply(ctx):
