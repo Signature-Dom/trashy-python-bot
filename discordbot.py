@@ -96,6 +96,7 @@ async def on_message(message):
 @client.command()
 @commands.has_any_role('Moderator','Administrator','Founder')
 async def shut(ctx):
+    await ctx.message.delete()
     await ctx.send(file=discord.File('shut.png'))
 
 @client.command()
