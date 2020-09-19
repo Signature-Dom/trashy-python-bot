@@ -86,7 +86,7 @@ async def on_message(message):
             await message.delete()
 
         await message.delete()
-        role = discord.utils.get(message.guild.roles, name='UnVerified')
+        role = discord.utils.get(message.guild.roles, name='Unverified')
         mrole = discord.utils.get(message.guild.roles, name='Member')
         await message.author.add_roles(mrole)
         await message.author.remove_roles(role)
