@@ -94,6 +94,11 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
+@commands.has_any_role('Moderator','Administrator','Founder')
+async def shut(ctx):
+    await ctx.send(file=discord.File('shut.png'))
+
+@client.command()
 async def minecraft(ctx, *, message):
 
     if len(message) > 36:
@@ -342,30 +347,10 @@ async def rolldice(ctx):
     await ctx.send(embed=embed)
 
 
-@client.command()#support
-async def support(ctx):
-    channel = client.get_channel(748185881105399968)
-    embed = discord.Embed(title='📢 Support', description=f'Please wait for a staff member to help you.', color = discord.Colour.dark_gold()) # or any other color
-    await channel.send(f"<@&748220070202835115> {ctx.author} Needs help in {ctx.channel}")
-    embed.set_footer(text=f"{ctx.author.name} ran this command.")
-    await ctx.send(embed=embed)
-    print(f'{ctx.author} Used Support')
-
-@client.command()#suggest
-async def suggest(ctx, reason):
-    suggestion = discord.Embed(title='📢 Suggest', description=f'<@&748811710193860618> New Suggestion., \n Suggestion : **{reason}**', color = discord.Colour.dark_gold()) # or any other color
-    embed = discord.Embed(title='📢 Suggest', description=f'Sent suggestion, \n Suggestion: **{reason}**', color = discord.Colour.dark_gold()) # or any other color
-    channel = client.get_channel(748185881105399968)
-    suggestion.set_footer(text=f"Suggestion by {ctx.author.nick}")
-    await ctx.send(embed=embed)
-    await channel.send(embed=suggestion)
-    await channel.send('<@&748811710193860618>')
-    await channel.purge(limit=1)
-    print(f'{ctx.author} Used Suggest, {reason}')
 
 @client.command()#help
 async def help(ctx):
-    embed = discord.Embed(title='📢 HELP MENU', description=f"✔ **Modder** \n**!drop** - Starts money drop \n**!enddrop** - Ends drop \n🎮 **Fun** \n **!kiss** - Give someone a kiss\n**!8ball** - Ask the magical 8 ball a question and get an answer\n**!coinflip** - Flip a coin \n**!rockpaperscissors** - Rock paper scissors game\n**!rolldice** - Roll a dice\n🎨 **Other**\n**!avatar** - check someones avatar\n**!info** - View a user info \n **!ping** - Check your ping\n <:BlobFearSweat:743833140505739294> **NSFW** \n **!sauce** - generate some nhentai sauce \n **!hentai** - send some hentai", color = discord.Colour.dark_gold()) # or any other
+    embed = discord.Embed(title='📢 HELP MENU', description=f"🙂 **General** \n **!help** - View the command help menu\n 🎟 **Tickets**\n **!apply** - Create an application\n **!close** - Close the ticket you are typing in \n **!new** - Create a ticket\n🎮 **Fun** \n **!kiss** - Give someone a kiss\n**!8ball** - Ask the magical 8 ball a question and get an answer\n**!coinflip** - Flip a coin \n**!rockpaperscissors** - Rock paper scissors game\n**!rolldice** - Roll a dice\n🎨 **Other**\n**!avatar** - check someones avatar\n**!info** - View a user info \n **!ping** - Check bots latency\n <:BlobFearSweat:743833140505739294> **NSFW** \n **!sauce** - generate some nhentai sauce \n **!hentai** - send some hentai", color = discord.Colour.dark_gold()) # or any other
     embed.set_footer(text=f"The Default Server Prefix Is !, and {ctx.author.name} ran this command.")
     await ctx.send(embed=embed)
     print(f'{ctx.author} Used Help')
