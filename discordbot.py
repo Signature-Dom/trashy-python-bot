@@ -106,6 +106,7 @@ async def gay(ctx, member : discord.Member = None):
         embed = discord.Embed(title=f'**{ctx.author.name} is {number}% gay!**', color = discord.Colour.dark_gold()) # or any other color
     else:
         embed = discord.Embed(title=f'**{member.name} is {number}% gay!**', color = discord.Colour.dark_gold()) # or any other color
+    await ctx.send(embed=embed)
 
 @client.command()
 async def horny(ctx, member : discord.Member = None):
@@ -114,6 +115,7 @@ async def horny(ctx, member : discord.Member = None):
         embed = discord.Embed(title=f'💦 **{ctx.author.name} is {number}% horny!**', color = discord.Colour.dark_gold()) # or any other color
     else:
         embed = discord.Embed(title=f'💦 **{member.name} is {number}% horny!**', color = discord.Colour.dark_gold()) # or any other color
+    await ctx.send(embed=embed)
 
 @client.command()
 async def minecraft(ctx, *, message):
