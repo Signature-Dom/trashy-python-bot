@@ -100,6 +100,22 @@ async def shut(ctx):
     await ctx.send(file=discord.File('shut.png'))
 
 @client.command()
+async def gay(ctx, member : discord.Member = None):
+    number = random.randint(1, 100)
+    if member == None:
+        embed = discord.Embed(title=f'**{ctx.author.name} is {number}% gay!**', color = discord.Colour.dark_gold()) # or any other color
+    else:
+        embed = discord.Embed(title=f'**{member.name} is {number}% gay!**', color = discord.Colour.dark_gold()) # or any other color
+
+@client.command()
+async def horny(ctx, member : discord.Member = None):
+    number = random.randint(1, 100)
+    if member == None:
+        embed = discord.Embed(title=f'💦 **{ctx.author.name} is {number}% horny!**', color = discord.Colour.dark_gold()) # or any other color
+    else:
+        embed = discord.Embed(title=f'💦 **{member.name} is {number}% horny!**', color = discord.Colour.dark_gold()) # or any other color
+
+@client.command()
 async def minecraft(ctx, *, message):
 
     if len(message) > 36:
