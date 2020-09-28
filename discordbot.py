@@ -11,10 +11,6 @@ from requests.exceptions import HTTPError
 
 TOKEN = 'NzQxNjE5MDA2NjQ1MjA3MDQw.Xy6MhQ.853Js8TYIzx4c1c-Iz5Z4mwWEw4'
 
-
-
-
-
 def get_prefix(client, message):
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
