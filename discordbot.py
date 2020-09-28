@@ -4,12 +4,12 @@ import random
 import time
 import asyncio
 import requests
-from config import TOKEN
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 from discord.ext import tasks
 from requests.exceptions import HTTPError
 
+TOKEN = 'NzQxNjE5MDA2NjQ1MjA3MDQw.Xy6MhQ.853Js8TYIzx4c1c-Iz5Z4mwWEw4'
 
 
 
