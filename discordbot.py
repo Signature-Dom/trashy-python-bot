@@ -58,21 +58,21 @@ async def tez():
         print('This is a simple message sent every 15 minutes to keep the bot online.')
         await asyncio.sleep(900)
 
-async def avatar():
+async def avataredit():
     with open('sit.png', mode='rb') as fp:
         image = fp.read()
         await client.user.edit(avatar=image)
     print('Changed to sitting')
     await asyncio.sleep(900)
-    asyncio.create_task(avatar1())
+    asyncio.create_task(avataredit1())
 
-async def avatar1():
+async def avataredit1():
     with open('Stand.png', mode='rb') as fp:
         image = fp.read()
         await client.user.edit(avatar=image)
     print('Changed to standing')
     await asyncio.sleep(900)
-    asyncio.create_task(avatar())
+    asyncio.create_task(avataredit())
 
 @client.event #startup
 async def on_ready():
@@ -81,9 +81,7 @@ async def on_ready():
     vchannel = client.get_channel(755445385366863962)
     await vchannel.connect(reconnect=True)
     asyncio.create_task(tez())
-    asyncio.create_task(avatar())
-
-
+    asyncio.create_task(avataredit())
 
 @client.event
 async def on_message(message):
