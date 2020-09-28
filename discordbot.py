@@ -138,7 +138,7 @@ class Music(commands.Cog):
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
 
-
+client.add_cog(Music(client))
 
 @client.event
 async def on_guild_join(guild):
