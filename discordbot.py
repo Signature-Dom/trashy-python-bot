@@ -58,15 +58,6 @@ async def tez():
         print('This is a simple message sent every 15 minutes to keep the bot online.')
         await asyncio.sleep(900)
 
-@client.event #startup
-async def on_ready():
-    print('Bot Is Ready')
-    await client.change_presence(activity=discord.Streaming(name="Waiting For !Help", url='https://www.twitch.tv/gamergirlbathwater2281'))
-    vchannel = client.get_channel(755445385366863962)
-    await vchannel.connect(reconnect=True)
-    asyncio.create_task(tez())
-    asyncio.create_task(avatar())
-
 async def avatar():
     with open('sit.png', mode='rb') as fp:
         image = fp.read()
@@ -82,6 +73,17 @@ async def avatar1():
     print('Changed to standing')
     await asyncio.sleep(900)
     asyncio.create_task(avatar())
+
+@client.event #startup
+async def on_ready():
+    print('Bot Is Ready')
+    await client.change_presence(activity=discord.Streaming(name="Waiting For !Help", url='https://www.twitch.tv/gamergirlbathwater2281'))
+    vchannel = client.get_channel(755445385366863962)
+    await vchannel.connect(reconnect=True)
+    asyncio.create_task(tez())
+    asyncio.create_task(avatar())
+
+
 
 @client.event
 async def on_message(message):
