@@ -71,15 +71,15 @@ async def avatar():
     with open('sit.png', mode='rb') as fp:
         image = fp.read()
         client.edit(avatar=image)
-        await asyncio.sleep(900)
-        asyncio.create_task(avatar1())
+    await asyncio.sleep(900)
+    asyncio.create_task(avatar1())
 
 async def avatar1():
     with open('Stand.png', mode='rb') as fp:
         image = fp.read()
         client.edit(avatar=image)
-        await asyncio.sleep(900)
-        asyncio.create_task(avatar())
+    await asyncio.sleep(900)
+    asyncio.create_task(avatar())
 
 @client.event
 async def on_message(message):
