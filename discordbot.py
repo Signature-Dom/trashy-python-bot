@@ -94,6 +94,13 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
+async def membercount(ctx):
+    members = ctx.guild.member_count
+    embed = discord.Embed(title='Member Count', description=f'There are **{members-1}** members in this guild')
+    await ctx.send(embed=embed)
+
+
+@client.command()
 @commands.has_any_role('Moderator','Administrator','Founder')
 async def shut(ctx):
     await ctx.message.delete()
