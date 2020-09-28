@@ -4,7 +4,7 @@ import random
 import time
 import asyncio
 import requests
-from config.py import TOKEN
+from config import TOKEN
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 from discord.ext import tasks
