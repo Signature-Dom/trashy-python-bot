@@ -71,6 +71,7 @@ async def avatar():
     with open('sit.png', mode='rb') as fp:
         image = fp.read()
         await client.user.edit(avatar=image)
+    print('Changed to sitting')
     await asyncio.sleep(900)
     asyncio.create_task(avatar1())
 
@@ -78,6 +79,7 @@ async def avatar1():
     with open('Stand.png', mode='rb') as fp:
         image = fp.read()
         await client.user.edit(avatar=image)
+    print('Changed to standing')
     await asyncio.sleep(900)
     asyncio.create_task(avatar())
 
