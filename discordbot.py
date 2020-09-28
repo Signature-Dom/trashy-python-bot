@@ -58,6 +58,14 @@ async def tez():
         print('This is a simple message sent every 15 minutes to keep the bot online.')
         await asyncio.sleep(900)
 
+async def membercount():
+    while True:
+        vchannel = client.get_channel(755445385366863962)
+        guild = client.get_guild(735050902590849049)
+        members = guild.member_count
+        await vchannel.edit(name=f'Member Count: {members-1}')
+        await asyncio.sleep(15)
+
 async def avataredit():
     with open('sit.png', mode='rb') as fp:
         image = fp.read()
@@ -82,6 +90,7 @@ async def on_ready():
     await vchannel.connect(reconnect=True)
     asyncio.create_task(tez())
     asyncio.create_task(avataredit())
+    asyncio.create_task(membercount())
 
 @client.event
 async def on_message(message):
