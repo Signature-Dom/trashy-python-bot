@@ -3,3 +3,4 @@ PyNaCl
 requests
 Pillow
 youtube_dl
+ffmpeg 
