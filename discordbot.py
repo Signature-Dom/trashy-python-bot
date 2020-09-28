@@ -138,8 +138,6 @@ class Music(commands.Cog):
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
 
-client = commands.client(command_prefix=commands.when_mentioned_or("!"),
-                   description='Relatively simple music client example')
 
 
 @client.event
