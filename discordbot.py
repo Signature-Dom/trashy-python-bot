@@ -105,6 +105,12 @@ async def shut(ctx):
     await ctx.send(file=discord.File('shut.png'))
 
 @client.command()
+@commands.has_any_role('Moderator','Administrator','Founder')
+async def nobodyasked(ctx):
+    await ctx.message.delete()
+    await ctx.send(file=discord.File('nobodyasked.mp4'))
+
+@client.command()
 async def gay(ctx, member : discord.Member = None):
     number = random.randint(1, 100)
     if member == None:
@@ -382,7 +388,7 @@ async def help(ctx):
 @client.command()
 @commands.has_any_role('Junior Mod','Moderator','Administrator','Founder')
 async def shelp(ctx):
-    embed = discord.Embed(title='Staff Help Menu', description=f"👮‍♂️ **Moderation** \n **!ban** - Ban a member of the server. \n **!purge** - Clear a certain amount of messages \n **!kick** - Kick a user in the Discord server \n **!lock** - Lock the channel so users cannot send messages \n **!mute** - Mute a user in the Discord server \n **!tempban** - Temporarily ban a user on the Discord server \n  **!tempmute** - Temporarily mute a user on the Discord server \n **!unban** - Unban a user on the Discord server \n **!unlock** - Unlock the channel you are typing in \n **!unmute** - Unmute a user on the Discord server \n 🖥 **Management** \n **!setprefix** - Set the bot's prefix \n **!setstatus** - Set the bot's status", color = discord.Colour.dark_gold()) # or any other
+    embed = discord.Embed(title='Staff Help Menu', description=f"👮‍♂️ **Moderation** \n **!ban** - Ban a member of the server. \n **!purge** - Clear a certain amount of messages \n **!kick** - Kick a user in the Discord server \n **!lock** - Lock the channel so users cannot send messages \n **!mute** - Mute a user in the Discord server \n **!tempban** - Temporarily ban a user on the Discord server \n  **!tempmute** - Temporarily mute a user on the Discord server \n **!unban** - Unban a user on the Discord server \n **!unlock** - Unlock the channel you are typing in \n **!unmute** - Unmute a user on the Discord server \n 🖥 **Management** \n **!setprefix** - Set the bot's prefix \n **!setstatus** - Set the bot's status \n **Make People Feel Bad** \n **!shut** - Shut someone up \n **nobodyasked** - Nobody asked", color = discord.Colour.dark_gold()) # or any other
     await ctx.send(embed=embed)
 
 @client.command()
