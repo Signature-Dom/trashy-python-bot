@@ -65,6 +65,21 @@ async def on_ready():
     vchannel = client.get_channel(755445385366863962)
     await vchannel.connect(reconnect=True)
     asyncio.create_task(tez())
+    asyncio.create_task(avatar())
+
+async def avatar():
+    with open('sit.png', mode='rb') as fp:
+        image = fp.read()
+        client.edit(avatar=image)
+        await asyncio.sleep(900)
+        asyncio.create_task(avatar1())
+
+async def avatar1():
+    with open('Stand.png', mode='rb') as fp:
+        image = fp.read()
+        client.edit(avatar=image)
+        await asyncio.sleep(900)
+        asyncio.create_task(avatar())
 
 @client.event
 async def on_message(message):
