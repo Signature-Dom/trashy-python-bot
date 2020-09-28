@@ -61,7 +61,7 @@ async def tez():
 @client.event #startup
 async def on_ready():
     print('Bot Is Ready')
-    await client.change_presence(activity= discord.Game('Started To Watch Potatos!'))
+    await client.change_presence(activity=discord.Streaming(name="Waiting For !Help", url='https://www.twitch.tv/gamergirlbathwater2281'))
     vchannel = client.get_channel(755445385366863962)
     await vchannel.connect(reconnect=True)
     asyncio.create_task(tez())
