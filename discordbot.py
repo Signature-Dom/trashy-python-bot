@@ -42,7 +42,8 @@ async def on_guild_remove(guild):
 @client.event
 async def on_member_join(member):
     channel = client.get_channel(755769687651909703)
-    embed = discord.Embed(title='**Welcome To Signature Doms Community Discord**', description=f'{member.mention} Please read the <#743830128274047057> \n **Time Of Joining** \n {member.joined_at.strftime("%A %d. %B %Y")}', color = discord.Colour.dark_gold()) # or any other color
+    members = member.guild.member_count
+    embed = discord.Embed(title='**Welcome To Signature Doms Community Discord**', description=f'{member.mention} Please read the <#743830128274047057> \nYou are member number {members-1} \n **Time Of Joining** \n {member.joined_at.strftime("%A %d. %B %Y")}', color = discord.Colour.dark_gold()) # or any other color
     role = discord.utils.get(member.guild.roles, name='Unverified')
     await member.add_roles(role)
     await channel.send(embed=embed)
