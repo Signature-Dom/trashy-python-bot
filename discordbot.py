@@ -112,7 +112,7 @@ async def membercount(ctx):
 
 @client.command()
 @commands.has_any_role('Moderator','Administrator','Founder')
-async def say(ctx, value):
+async def say(ctx, *, value):
     await ctx.message.delete()
     await ctx.send(value)
 
