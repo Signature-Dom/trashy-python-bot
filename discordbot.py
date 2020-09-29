@@ -7,6 +7,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 from discord.ext import tasks
+from discord.ext.commands.cooldowns import BucketType
 from requests.exceptions import HTTPError
 
 TOKEN = 'NzQxNjE5MDA2NjQ1MjA3MDQw.Xy6MhQ.853Js8TYIzx4c1c-Iz5Z4mwWEw4'
@@ -66,21 +67,6 @@ async def membersyes():
         await vchannel.edit(name=f'Member Count: {members-1}')
         await asyncio.sleep(15)
 
-async def avataredit():
-    with open('sit.png', mode='rb') as fp:
-        image = fp.read()
-        await client.user.edit(avatar=image)
-    print('Changed to sitting')
-    await asyncio.sleep(900)
-    asyncio.create_task(avataredit1())
-
-async def avataredit1():
-    with open('Stand.png', mode='rb') as fp:
-        image = fp.read()
-        await client.user.edit(avatar=image)
-    print('Changed to standing')
-    await asyncio.sleep(900)
-    asyncio.create_task(avataredit())
 
 @client.event #startup
 async def on_ready():
