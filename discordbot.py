@@ -68,6 +68,7 @@ async def membersyes():
         await asyncio.sleep(15)
 
 
+
 @client.event #startup
 async def on_ready():
     print('Bot Is Ready')
@@ -109,6 +110,11 @@ async def membercount(ctx):
     embed = discord.Embed(title='Member Count', description=f'There are **{members-1}** members in this guild')
     await ctx.send(embed=embed)
 
+@client.command()
+@commands.has_any_role('Moderator','Administrator','Founder')
+async def say(ctx, value):
+    await ctx.message.delete()
+    await ctx.send(value)
 
 @client.command()
 @commands.has_any_role('Moderator','Administrator','Founder')
