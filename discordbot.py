@@ -108,8 +108,9 @@ async def on_message(message):
 async def tag(ctx, tag = None):
     if tag == None:
         await ctx.send('Tags can give guides on certain things - Current tags are, vpn')
-    if tag == 'vpn':
-        embed = discord.embed(title='KeepSolid VPN 6 Months Method', description='Go to \n \n**[{https://my.keepsolid.com/login/}](https://my.keepsolid.com/login/)** \n \nCreate New Account\n \n Redeem this code : \n**VPNUTICKCOUPON** \n \nAnd Nice, u have 6 Months of Good VPN ', color = discord.Colour.dark_gold())
+    elif tag == 'vpn':
+        embed = discord.Embed(title='KeepSolid VPN 6 Months Method', description='Go to \n \n**[{https://my.keepsolid.com/login/}](https://my.keepsolid.com/login/)** \n \nCreate New Account\n \n Redeem this code : \n**VPNUTICKCOUPON** \n \nAnd Nice, u have 6 Months of Good VPN ', color = discord.Colour.dark_gold())
+        await ctx.send=(embed=embed)
 
 @client.command()
 async def membercount(ctx):
