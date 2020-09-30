@@ -76,7 +76,6 @@ async def on_ready():
     vchannel = client.get_channel(755445385366863962)
     await vchannel.connect(reconnect=True)
     asyncio.create_task(tez())
-    asyncio.create_task(avataredit())
     asyncio.create_task(membersyes())
 
 @client.event
