@@ -105,9 +105,16 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
+async def tag(ctx, tag = None):
+    if tag == None:
+        await ctx.send('Tags can give guides on certain things - Current tags are, vpn')
+    if tag == 'vpn':
+        embed = discord.embed(title='KeepSolid VPN 6 Months Method', description='Go to \n \n**[{https://my.keepsolid.com/login/}](https://my.keepsolid.com/login/)** \n \nCreate New Account\n \n Redeem this code : \n**VPNUTICKCOUPON** \n \nAnd Nice, u have 6 Months of Good VPN ', color = discord.Colour.dark_gold())
+
+@client.command()
 async def membercount(ctx):
     members = ctx.guild.member_count
-    embed = discord.Embed(title='Member Count', description=f'There are **{members-1}** members in this guild')
+    embed = discord.Embed(title='Member Count', description=f'There are **{members-1}** members in this guild', color = discord.Colour.dark_gold())
     await ctx.send(embed=embed)
 
 @client.command()
@@ -398,7 +405,7 @@ async def rolldice(ctx):
 
 @client.command()#help
 async def help(ctx):
-    embed = discord.Embed(title='📢 HELP MENU', description=f"🙂 **General** \n **!help** - View the command help menu\n 🎟 **Tickets**\n **!apply** - Create an application\n **!close** - Close the ticket you are typing in \n **!new** - Create a ticket\n🎮 **Fun** \n **!kiss** - Give someone a kiss\n**!8ball** - Ask the magical 8 ball a question and get an answer\n**!coinflip** - Flip a coin \n**!rockpaperscissors** - Rock paper scissors game\n**!rolldice** - Roll a dice \n**!gay** - Measure how gay someone is \n**!horny** - Measure how horny someone is\n🎨 **Other**\n**!avatar** - check someones avatar\n**!info** - View a user info \n **!ping** - Check bots latency\n <:blobhyperthink:743833140451082372> **NSFW** \n **!sauce** - generate some nhentai sauce \n **!hentai** - send some hentai", color = discord.Colour.dark_gold()) # or any other
+    embed = discord.Embed(title='📢 HELP MENU', description=f"🙂 **General** \n **!help** - View the command help menu\n **!tag** - Veiw guides/ help tags\n 🎟 **Tickets**\n **!apply** - Create an application\n **!close** - Close the ticket you are typing in \n **!new** - Create a ticket\n🎮 **Fun** \n **!kiss** - Give someone a kiss\n**!8ball** - Ask the magical 8 ball a question and get an answer\n**!coinflip** - Flip a coin \n**!rockpaperscissors** - Rock paper scissors game\n**!rolldice** - Roll a dice \n**!gay** - Measure how gay someone is \n**!horny** - Measure how horny someone is\n🎨 **Other**\n**!avatar** - check someones avatar\n**!info** - View a user info \n **!ping** - Check bots latency\n <:blobhyperthink:743833140451082372> **NSFW** \n **!sauce** - generate some nhentai sauce \n **!hentai** - send some hentai", color = discord.Colour.dark_gold()) # or any other
     embed.set_footer(text=f"The Default Server Prefix Is !, and {ctx.author.name} ran this command.")
     await ctx.send(embed=embed)
     print(f'{ctx.author} Used Help')
