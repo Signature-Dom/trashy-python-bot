@@ -82,12 +82,12 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith('https://'):
         await message.delete()
-        msgx = await message.chanel.send(f'No Links {message.author.name}')
+        msgx = await message.channel.send(f'No Links {message.author.name}')
         await asyncio.sleep(15)
         await msgx.delete()
     if message.content.startswith('http://'):
         await message.delete()
-        msgx = await message.chanel.send(f'No Links {message.author.name}')
+        msgx = await message.channel.send(f'No Links {message.author.name}')
         await asyncio.sleep(15)
         await msgx.delete()
 
