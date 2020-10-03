@@ -80,6 +80,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.startswith('https://'):
+        await message.delete()
+        msgx = await message.send(f'No Links {message.author.name}')
+        await asyncio.sleep(15)
+        await msgx.delete()
+    if message.content.startswith('http://'):
+        await message.delete()
+        msgx = await message.send(f'No Links {message.author.name}')
+        await asyncio.sleep(15)
+        await msgx.delete()
+
     if message.channel.id == 752517536540524554:
         if not message.author.bot:
             a = message.content
