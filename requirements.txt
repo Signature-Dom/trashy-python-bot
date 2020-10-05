@@ -2,4 +2,4 @@ discord.py
 PyNaCl
 requests
 Pillow
-boto3
+os
