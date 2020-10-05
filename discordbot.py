@@ -794,5 +794,5 @@ async def serverinfo(ctx):
         mrole += "\n" + role.mention
     embed.add_field(name='Roles', value=mrole, inline = True)
     await ctx.send(embed=embed)
-
-client.run(os.environ.['TOKEN'])
+TOKEN = S3Connection(os.environ['TOKEN'], os.environ['TOKEN_SECRET'])
+client.run(TOKEN)
