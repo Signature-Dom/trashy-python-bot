@@ -4,13 +4,13 @@ import random
 import time
 import asyncio
 import requests
+import boto3
+from boto.s3.connection import S3Connection
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 from discord.ext import tasks
 from discord.ext.commands.cooldowns import BucketType
 from requests.exceptions import HTTPError
-
-TOKEN = 'NzQxNjE5MDA2NjQ1MjA3MDQw.Xy6MhQ.853Js8TYIzx4c1c-Iz5Z4mwWEw4'
 
 def get_prefix(client, message):
     with open('prefixes.json', 'r') as f:
@@ -795,4 +795,4 @@ async def serverinfo(ctx):
     embed.add_field(name='Roles', value=mrole, inline = True)
     await ctx.send(embed=embed)
 
-client.run(TOKEN)
+client.run(os.environ.['TOKEN'])
