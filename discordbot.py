@@ -4,8 +4,6 @@ import random
 import time
 import asyncio
 import requests
-import boto3
-from boto.s3.connection import S3Connection
 from PIL import Image, ImageDraw, ImageFont
 from discord.ext import commands
 from discord.ext import tasks
