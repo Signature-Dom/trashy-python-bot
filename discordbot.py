@@ -15,7 +15,9 @@ def get_prefix(client, message):
         prefixes = json.load(f)
 
     return prefixes[str(message.guild.id)]
-
+    
+intents = discord.Intents.default()
+intents.members = True
 client = commands.Bot(command_prefix = get_prefix, help_command = None)
 
 @client.event
