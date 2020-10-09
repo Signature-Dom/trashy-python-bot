@@ -18,7 +18,7 @@ def get_prefix(client, message):
     
 intents = discord.Intents.default()
 intents.members = True
-client = commands.Bot(command_prefix = get_prefix, help_command = None)
+client = commands.Bot(command_prefix = get_prefix, help_command = None,intents=intents)
 
 @client.event
 async def on_guild_join(guild):
