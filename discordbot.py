@@ -40,55 +40,18 @@ async def on_guild_remove(guild):
 
 @client.event
 async def on_member_join(member):
-    channel = client.get_channel(755769687651909703)
-    members = member.guild.member_count
-    embed = discord.Embed(title='**Welcome To Signature Doms Community Discord**', description=f'{member.mention} Please read the <#743830128274047057> \nYou are member number {members-1} \n **Time Of Joining** \n {member.joined_at.strftime("%A %d. %B %Y")}', color = discord.Colour.dark_gold()) # or any other color
     role = discord.utils.get(member.guild.roles, name='Unverified')
     await member.add_roles(role)
-    await channel.send(embed=embed)
-
-@client.event
-async def on_member_remove(member):
-    channel = client.get_channel(755430098454446271)
-    await channel.send(f'{member.mention} Has left the server.')
-
-async def tez():
-    while True:
-        print('This is a simple message sent every 15 minutes to keep the bot online.')
-        await asyncio.sleep(900)
-
-async def membersyes():
-    while True:
-        vchannel = client.get_channel(755445385366863962)
-        guild = client.get_guild(735050902590849049)
-        members = guild.member_count
-        await vchannel.edit(name=f'Member Count: {members-1}')
-        await asyncio.sleep(15)
-
-
 
 @client.event #startup
 async def on_ready():
     print('Bot Is Ready')
     await client.change_presence(activity=discord.Streaming(name="Waiting For !Help", url='https://www.twitch.tv/gamergirlbathwater2281'))
-    vchannel = client.get_channel(755445385366863962)
+    vchannel = client.get_channel(763362941834756126)
     await vchannel.connect(reconnect=True)
-    asyncio.create_task(tez())
-    asyncio.create_task(membersyes())
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('https://'):
-        await message.delete()
-        msgx = await message.channel.send(f'No Links {message.author.name}')
-        await asyncio.sleep(15)
-        await msgx.delete()
-    if message.content.startswith('http://'):
-        await message.delete()
-        msgx = await message.channel.send(f'No Links {message.author.name}')
-        await asyncio.sleep(15)
-        await msgx.delete()
-
     if message.channel.id == 752517536540524554:
         if not message.author.bot:
             a = message.content
