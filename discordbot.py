@@ -44,6 +44,7 @@ async def on_guild_remove(guild):
 async def on_member_join(member):
     role = discord.utils.get(member.guild.roles, name='Unverified')
     await member.add_roles(role)
+    print('a')
 
 @client.event #startup
 async def on_ready():
