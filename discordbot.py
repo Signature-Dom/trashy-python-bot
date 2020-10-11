@@ -90,7 +90,7 @@ async def tag(ctx, tag = None):
 @client.command()
 async def membercount(ctx):
     members = ctx.guild.member_count
-    embed = discord.Embed(title='Member Count', description=f'There are **{members-1}** members in this guild', color = discord.Colour.dark_gold())
+    embed = discord.Embed(title='Member Count', description=f'There are **{members-5}** members in this guild', color = discord.Colour.dark_gold())
     await ctx.send(embed=embed)
 
 @client.command()
